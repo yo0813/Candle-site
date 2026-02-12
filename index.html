@@ -1,104 +1,76 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HYSTÉRA</title>
+  <title>Nameless Candle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  background: #000;
+  color: #e6e6e6;
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+}
 
-  <style>
-    :root{
-      --bg:#000;
-      --text:#d8d8d8;
-      --muted:#bdbdbd;
-    }
+/* ロゴ */
+.top-logo {
+  width: 85%;
+  max-width: 900px;
+  display: block;
+  margin: 120px auto 40px auto;
+}
 
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      text-align:center;
-      padding:40px 18px; /* 全体の上下余白（ここで全体位置を調整） */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+/* 文章共通 */
+.fade {
+  opacity: 0;
+  animation: fadeUp 1.5s ease forwards;
+}
 
-    /* ロゴ */
-    .logo{
-      width:min(92vw, 820px);
-      display:block;
-      margin:0 auto 18px; /* ← ロゴ下の余白（白丸①を消す） */
-    }
+.delay1 { animation-delay: 1s; }
+.delay2 { animation-delay: 2.2s; }
+.delay3 { animation-delay: 3.4s; }
+.delay4 { animation-delay: 4.6s; }
+.delay5 { animation-delay: 6s; }
 
-    /* 文章ブロック */
-    .copy{
-      max-width:640px;
-      margin:0 auto;
-    }
+p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin: 10px auto;
+  max-width: 640px;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+}
 
-    .copy p{
-      margin:8px 0;              /* ← 行と行の余白（ギュッと） */
-      font-family:'Noto Serif JP', serif;
-      font-weight:300;
-      font-size:17px;
-      line-height:1.55;          /* ← 行間（ギュッと） */
-      letter-spacing:0.06em;
-      opacity:0.82;
-    }
+/* 下のHYSTERA */
+.brand {
+  margin-top: 30px;
+  font-size: 20px;
+  letter-spacing: 0.3em;
+}
 
-    /* 「ようこそ」だけ少し小さく上品に */
-    .copy p.lead{
-      margin-top:6px;
-      margin-bottom:12px;
-      font-size:16px;
-      letter-spacing:0.12em;
-      opacity:0.75;
-    }
-
-    /* 下のブランド */
-    .brand{
-      margin-top:16px;           /* ← 下の余白（白丸②を消す） */
-      font-family:'Playfair Display', serif;
-      font-size:22px;
-      letter-spacing:0.22em;
-      opacity:0.78;
-    }
-
-    /* （任意）ふわっと登場：全体にかける */
-    .fade{
-      opacity:0;
-      transform: translateY(14px);
-      animation: fadeUp 1.6s ease forwards;
-    }
-    @keyframes fadeUp{
-      to{ opacity:1; transform: translateY(0); }
-    }
-
-    /* スマホ微調整 */
-    @media (max-width:420px){
-      body{ padding:34px 16px; }
-      .copy p{ font-size:16px; line-height:1.55; }
-      .brand{ font-size:20px; }
-    }
-  </style>
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
 </head>
 
 <body>
-  <!-- ロゴ -->
-  <img class="logo fade" src="logo.jpg" alt="HYSTÉRA logo">
 
-  <!-- 文章（センター揃え） -->
-  <div class="copy fade">
-    <p class="lead">ようこそ</p>
-    <p>少しだけ現実から外れた場所へ</p>
-    <p>名の無い香りと、静かに揺れる炎があなたを待っています。</p>
-    <p>ここは不思議なキャンドルショップ</p>
+<img src="logo.jpg" class="top-logo fade">
 
-    <div class="brand">HYSTÉRA</div>
-  </div>
+<p class="fade delay1">ようこそ</p>
+
+<p class="fade delay2">少しだけ現実から外れた場所へ</p>
+
+<p class="fade delay3">名の無い香りと、静かに揺れる炎があなたを待っています。</p>
+
+<p class="fade delay4">ここは不思議なキャンドルショップ</p>
+
+<p class="fade delay5 brand">HYSTÉRA</p>
+
 </body>
 </html>
