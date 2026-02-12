@@ -1,220 +1,90 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HYSTÉRA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HYSTÉRA</title>
 
-  <!-- Elegant fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;
+  --text:#d9d9d9;
+}
 
-  <style>
-    :root{
-      --bg:#000;
-      --text: rgba(255,255,255,.78);
-      --text-strong: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.55);
-      --line: rgba(255,255,255,.18);
-    }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  text-align:center;
+  padding:20px 18px;
+  font-family:'Noto Serif JP', serif;
+}
 
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background: var(--bg);
-      color: var(--text);
-      text-align:center;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x:hidden;
-    }
+/* ロゴ */
+.logo{
+  width:86%;
+  max-width:780px;
+  display:block;
+  margin:0 auto 18px;
+}
 
-    /* subtle vignette (luxury darkness) */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(ellipse at center, rgba(255,255,255,.06), rgba(0,0,0,0) 52%),
-        radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.65) 70%);
-      opacity:.9;
-      z-index:0;
-    }
+/* テキスト共通 */
+.copy{
+  max-width:560px;
+  margin:0 auto;
+  font-size:15px;
+  line-height:1.6;
+  letter-spacing:0.05em;
+  font-weight:300;
+}
 
-    .wrap{
-      position:relative;
-      z-index:1;
-      padding: 36px 18px 70px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
+/* 1行ごとの間隔 */
+.copy p{
+  margin:6px 0;
+  opacity:0;
+  transform:translateY(10px);
+  animation:fadeUp 1.5s ease forwards;
+}
 
-    /* HERO LOGO */
-    .logo{
-      width:min(92vw, 920px);
-      max-width: 920px;
-      display:block;
-      margin: 0 auto 18px;
-      filter: drop-shadow(0 10px 28px rgba(0,0,0,.7));
-    }
+/* 時間差 */
+.copy p:nth-child(1){ animation-delay:1s; }
+.copy p:nth-child(2){ animation-delay:2.2s; }
+.copy p:nth-child(3){ animation-delay:3.4s; }
+.copy p:nth-child(4){ animation-delay:4.6s; }
 
-    /* tighten the “empty” gaps */
-    .copy{
-      margin-top: 6px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px; /* ← 行間（段落間）をここで詰める */
-      align-items:center;
-    }
+/* ブランド */
+.brand{
+  margin-top:12px;
+  font-family:'Playfair Display', serif;
+  font-size:18px;
+  letter-spacing:0.25em;
+  opacity:0;
+  transform:translateY(10px);
+  animation:fadeUp 1.5s ease forwards;
+  animation-delay:6s;
+}
 
-    .line{
-      font-family: "Noto Serif JP", serif;
-      font-weight:300;
-      letter-spacing: .08em;
-      line-height: 1.65; /* ← 行の中の行間 */
-      font-size: 15px;   /* ← “ようこそ〜Hystera”の基本サイズ */
-      margin:0;
-      max-width: 620px;
-    }
-
-    /* “ようこそ”も同じサイズにしたい → ここは同サイズのまま、透明度だけ少し上げる */
-    .hello{
-      color: var(--text-strong);
-      letter-spacing: .18em;
-    }
-
-    .shop{
-      margin-top: 2px;
-      color: var(--text);
-    }
-
-    .brand{
-      margin-top: 10px; /* ← 「キャンドルショップ」とHYSTÉRAの間 */
-      font-family: "Playfair Display", serif;
-      font-weight:500;
-      letter-spacing: .32em;
-      font-size: 18px;  /* ← 下のHYSTÉRAは少しだけ上品に */
-      color: rgba(255,255,255,.70);
-    }
-
-    /* Divider */
-    .divider{
-      width: 160px;
-      height:1px;
-      background: var(--line);
-      margin: 26px auto 26px;
-    }
-
-    /* Product block */
-    .product{
-      margin-top: 12px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap: 10px;
-    }
-
-    .no{
-      font-family: "Playfair Display", serif;
-      letter-spacing: .28em;
-      font-size: 14px;
-      color: var(--text-strong); /* ← No.01 を白く */
-      opacity: 1;
-    }
-
-    .pname{
-      font-family: "Playfair Display", serif;
-      font-size: 34px;
-      letter-spacing: .06em;
-      color: rgba(255,255,255,.88);
-      margin: 0;
-    }
-
-    .price{
-      font-family: "Playfair Display", serif;
-      font-size: 20px;
-      letter-spacing: .12em;
-      color: var(--text-strong); /* ← 価格も白く */
-      opacity: 1;
-      margin: 0;
-    }
-
-    .btn{
-      margin-top: 14px;
-      display:inline-block;
-      padding: 16px 34px;
-      border: 1px solid rgba(255,255,255,.28);
-      color: rgba(255,255,255,.82);
-      text-decoration:none;
-      letter-spacing: .32em;
-      font-family: "Playfair Display", serif;
-      font-size: 14px;
-      background: rgba(255,255,255,.03);
-      backdrop-filter: blur(2px);
-      transition: transform .25s ease, border-color .25s ease, background .25s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      border-color: rgba(255,255,255,.45);
-      background: rgba(255,255,255,.06);
-    }
-
-    /* --- Simple luxury: staggered reveal (time delay) --- */
-    .reveal{
-      opacity:0;
-      transform: translateY(10px);
-      filter: blur(1px);
-      animation: rise .9s ease forwards;
-    }
-    .d1{ animation-delay:.20s; }
-    .d2{ animation-delay:.45s; }
-    .d3{ animation-delay:.70s; }
-    .d4{ animation-delay:.95s; }
-    .d5{ animation-delay:1.20s; }
-    .d6{ animation-delay:1.45s; }
-    .d7{ animation-delay:1.70s; }
-
-    @keyframes rise{
-      to{ opacity:1; transform: translateY(0); filter: blur(0); }
-    }
-
-    /* mobile tuning */
-    @media (max-width:420px){
-      .wrap{ padding-top: 28px; }
-      .line{ font-size: 14px; }
-      .pname{ font-size: 30px; }
-    }
-  </style>
+/* アニメーション */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
 
-    <!-- TOP LOGO (image file in repo: logo.jpg) -->
-    <img class="logo reveal d1" src="logo.jpg" alt="HYSTÉRA">
+<img class="logo" src="logo.jpg" alt="HYSTÉRA logo">
 
-    <!-- Copy -->
-    <div class="copy">
-      <p class="line hello reveal d2">ようこそ</p>
-      <p class="line reveal d3">少しだけ現実から外れた場所へ</p>
-      <p class="line reveal d4">名の無い香りと、静かに揺れる炎があなたを待っています。</p>
-      <p class="line shop reveal d5">ここは不思議なキャンドルショップ</p>
-      <div class="brand reveal d6">HYSTÉRA</div>
-    </div>
+<div class="copy">
+  <p>ようこそ</p>
+  <p>少しだけ現実から外れた場所へ</p>
+  <p>名の無い香りと、静かに揺れる炎があなたを待っています。</p>
+  <p>ここは不思議なキャンドルショップ</p>
+  <div class="brand">HYSTÉRA</div>
+</div>
 
-    <div class="divider reveal d6"></div>
-
-    <!-- One sample product (no image) -->
-    <div class="product">
-      <div class="no reveal d6">No.01</div>
-      <h2 class="pname reveal d7">Still Flame</h2>
-      <p class="price reveal d7">¥12,000</p>
-      <a class="btn reveal d7" href="#enter">ENTER</a>
-    </div>
-
-    <div id="enter" style="height:1px;"></div>
-  </div>
 </body>
 </html>
