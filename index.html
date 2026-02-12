@@ -1,59 +1,63 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HYSTÉRA</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HYSTÉRA</title>
 
-<style>
-body{
-  margin:0;
-  background:#000;
-  color:#e6e6e6;
-  text-align:center;
-  font-family:"Noto Serif JP", serif;
-}
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: #e6e6e6;
+      text-align: center;
+      padding: 20px 20px;
+    }
 
-/* TOP HYSTÉRA */
-.hero{
-  font-family:"Playfair Display", serif;
-  font-size:72px;        /* ← 大きさ調整ここ */
-  letter-spacing:6px;
-  margin-top:120px;      /* ← 上からの位置調整ここ */
-  margin-bottom:40px;    /* ← 下の余白 */
-  color:#f5f5f5;
-}
+    /* TOP LOGO */
+    img {
+      width: 85%;
+      max-width: 520px;          /* ロゴの最大サイズ */
+      display: block;
+      margin: 40px auto 22px;    /* ← ロゴを少し下げる + ロゴ下の余白を減らす */
+    }
 
-/* TEXT BLOCK */
-.copy{
-  max-width:600px;
-  margin:0 auto;
-  font-size:18px;
-  line-height:1.7;
-  letter-spacing:0.5px;
-}
+    /* TEXT BLOCK */
+    .copy {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 18px;           /* ← 文字を少し小さく */
+      line-height: 1.8;          /* ← 行間を詰める */
+      letter-spacing: 0.5px;
+    }
 
-.copy p{
-  margin:6px 0;
-  opacity:0.85;
-}
+    .copy p {
+      margin: 8px auto;          /* ← 各行の上下余白を小さく（行間“以外”の空白を潰す） */
+      font-family: "Noto Serif JP", serif;
+      font-weight: 300;
+      opacity: 0.85;
+    }
 
-/* BOTTOM BRAND */
-.brand{
-  margin-top:30px;
-  font-family:"Playfair Display", serif;
-  font-size:20px;
-  letter-spacing:3px;
-  opacity:0.8;
-}
-</style>
+    /* BOTTOM BRAND */
+    .brand {
+      margin-top: 28px;          /* ← 下の空白を減らす */
+      font-family: "Playfair Display", serif;
+      font-size: 20px;           /* ← 少し小さく */
+      letter-spacing: 2px;
+      opacity: 0.85;
+    }
+  </style>
 </head>
 
 <body>
+  <img src="logo.jpg" alt="HYSTÉRA logo" />
 
-<div class="hero">HYSTÉRA</div>
-
-<div class="copy">
-  <p>ようこそ</p>
-  <p>少しだけ現実から外れた場所へ</p>
-  <p>名の無い香りと、静かに揺
+  <div class="copy">
+    <p>ようこそ</p>
+    <p>少しだけ現実から外れた場所へ</p>
+    <p>名の無い香りと、静かに揺れる炎があなたを待っています。</p>
+    <p>ここは不思議なキャンドルショップ</p>
+    <div class="brand">HYSTÉRA</div>
+  </div>
+</body>
+</html>
