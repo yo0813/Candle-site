@@ -1,79 +1,90 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HYSTÉRA</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HYSTÉRA</title>
 
-  <style>
-    :root{
-      --bg:#000;
-      --text:#d9d9d9;
-      --text2:#bdbdbd;
-    }
+<style>
+:root{
+  --bg:#000;
+  --text:#d9d9d9;
+}
 
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      text-align:center;
-      padding:12px 18px;           /* ★全体の上下余白を削る */
-    }
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  text-align:center;
+  padding:20px 18px;
+  font-family:'Noto Serif JP', serif;
+}
 
-    /* 上のロゴ */
-    .logo{
-      width:86%;
-      max-width:780px;             /* ★大きいけど暴れない */
-      display:block;
-      margin:0 auto 10px;          /* ★ロゴ下の空白を減らす */
-    }
+/* ロゴ */
+.logo{
+  width:86%;
+  max-width:780px;
+  display:block;
+  margin:0 auto 18px;
+}
 
-    /* 文章全体 */
-    .copy{
-      max-width:560px;
-      margin:0 auto;
-      font-family:'Noto Serif JP', serif;
-      font-size:15px;              /* ★ようこそ〜HYSTÉRAを少し小さく */
-      line-height:1.65;            /* ★行間を詰める */
-      letter-spacing:0.04em;
-      font-weight:300;
-      opacity:0.88;
-    }
+/* テキスト共通 */
+.copy{
+  max-width:560px;
+  margin:0 auto;
+  font-size:15px;
+  line-height:1.6;
+  letter-spacing:0.05em;
+  font-weight:300;
+}
 
-    /* 1行ごとの間隔（ここがキモ） */
-    .copy p{
-      margin:6px 0;                /* ★段落の上下余白を小さく */
-    }
+/* 1行ごとの間隔 */
+.copy p{
+  margin:6px 0;
+  opacity:0;
+  transform:translateY(10px);
+  animation:fadeUp 1.5s ease forwards;
+}
 
-    /* 「ようこそ」だけ少し控えめ＆上の余白を削る */
-    .copy .welcome{
-      margin-top:2px;
-      color:var(--text2);
-      letter-spacing:0.18em;
-      font-size:14px;
-      opacity:0.9;
-    }
+/* 時間差 */
+.copy p:nth-child(1){ animation-delay:1s; }
+.copy p:nth-child(2){ animation-delay:2.2s; }
+.copy p:nth-child(3){ animation-delay:3.4s; }
+.copy p:nth-child(4){ animation-delay:4.6s; }
 
-    /* 下のHYSTÉRA（ブランド） */
-    .brand{
-      margin-top:10px;             /* ★「キャンドルショップ」との間を詰める */
-      font-family:'Playfair Display', serif;
-      font-size:18px;              /* ★少し小さく */
-      letter-spacing:0.22em;
-      opacity:0.9;
-    }
-  </style>
+/* ブランド */
+.brand{
+  margin-top:12px;
+  font-family:'Playfair Display', serif;
+  font-size:18px;
+  letter-spacing:0.25em;
+  opacity:0;
+  transform:translateY(10px);
+  animation:fadeUp 1.5s ease forwards;
+  animation-delay:6s;
+}
+
+/* アニメーション */
+@keyframes fadeUp{
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+</style>
 </head>
 
 <body>
-  <img class="logo" src="logo.jpg" alt="HYSTÉRA logo">
 
-  <div class="copy">
-    <p class="welcome">ようこそ</p>
-    <p>少しだけ現実から外れた場所へ</p>
-    <p>名の無い香りと、静かに揺れる炎があなたを待っています。</p>
-    <p>ここは不思議なキャンドルショップ</p>
-    <div class="brand">HYSTÉRA</div>
-  </div>
+<img class="logo" src="logo.jpg" alt="HYSTÉRA logo">
+
+<div class="copy">
+  <p>ようこそ</p>
+  <p>少しだけ現実から外れた場所へ</p>
+  <p>名の無い香りと、静かに揺れる炎があなたを待っています。</p>
+  <p>ここは不思議なキャンドルショップ</p>
+  <div class="brand">HYSTÉRA</div>
+</div>
+
 </body>
 </html>
